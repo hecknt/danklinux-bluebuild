@@ -1,6 +1,11 @@
 # Recipe for Virtual Machine support and a few developer tools.
 modules:
   - type: dnf
+    repos:
+      files:
+        - https://download.docker.com/linux/fedora/docker-ce.repo
+      copr:
+        - gmaglione/podman-bootc
     install:
       packages:
         - adb
@@ -25,6 +30,19 @@ modules:
         - podman-tui
         - podman-bootc
         - flatpak-builder
+        # docker
+        - containerd.io
+        - docker-buildx-plugin
+        - docker-ce
+        - docker-ce-cli
+        - docker-compose-plugin
+        - docker-model-plugin
+  - type: systemd
+    system:
+      enabled:
+        - docker.socket
+        - podman.socket
+        - ublue-os-libvirt-workarounds.service
 
   - type: default-flatpaks
     configurations:
