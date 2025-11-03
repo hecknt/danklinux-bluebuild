@@ -1,0 +1,29 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# image will be published to ghcr.io/<user>/<name>
+name: danklinux-nvidia
+description: Hec's personal Fedora Atomic Desktop image, built with AvengeMedia's Dank Linux as it's desktop.
+
+base-image: ghcr.io/ublue-os/base-nvidia
+image-version: 43
+
+# module configuration, executed in order
+# you can include multiple instances of the same module
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+
+  # pull info from these recipes
+  - from-file: common/base.yml
+  - from-file: common/desktop/general.yml
+  - from-file: common/desktop/dank.yml
+
+  - type: os-release
+    properties:
+      ID_LIKE: fedora
+      ID: danklinux
+      NAME: Dank Linux
+      PRETTY_NAME: Dank Linux 43
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully

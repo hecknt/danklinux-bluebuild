@@ -1,0 +1,52 @@
+# Base recipe that includes configurations and packages available on all of the images.
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+
+  - type: dnf
+    install:
+      packages:
+        # general-packages.sh
+        - fastfetch
+        - git
+        - gh
+        - hdparm
+        - samba
+        - bc
+        - patch
+        - ccache
+        - iotop
+        - udica
+        - ipcalc
+        - iperf3
+        - just
+        - lm_sensors
+        - lshw
+        - netcat
+        - nmap
+        - socat
+        - neovim
+        - plocate
+        - micro
+        - figlet
+        - cowsay
+        - lolcat
+        - btop
+        - htop
+        - lzip
+        - 7zip
+        - unrar
+        - strace
+        - powertop
+        - nmtui
+        - lsd
+        - yt-dlp
+        - nu
+        - zsh
+    remove:
+      packages:
+        - firefox
+        - firefox-langpacks
+        - mozilla-filesystem

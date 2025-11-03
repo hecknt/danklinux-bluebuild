@@ -1,0 +1,68 @@
+# Dank Linux.
+modules:
+  - type: files
+    files:
+      - source: dank
+        destination: /
+
+  - type: dnf
+    repos:
+      copr:
+        - yalter/niri
+        - solopasha/hyprland
+        - avengemedia/danklinux
+        - avengemedia/dms
+
+    install:
+      packages:
+        # Basic utils
+        - mate-polkit
+        - brightnessctl
+        - cava
+        - wl-clipboard
+        - gammastep
+        - sassc
+        - libappstream-glib
+
+        # Theming!
+        - adw-gtk3-theme
+        - nwg-look
+        - qt6-qtmultimedia
+        - qt6ct
+        - qt5ct
+
+        # XDG Desktop Portals. Nautilus is required for filepicker on xdg-desktop-portal-gnome
+        - xdg-desktop-portal-gnome
+        - xdg-desktop-portal-gtk
+        - nautilus
+
+        # Wayland compositors and their specific tools
+        - niri
+        - hyprland
+        - hyprland-devel
+        - grimblast
+        - matugen
+
+        # DankMaterialShell
+        - cliphist
+        - dms
+        - dms-greeter
+        - quickshell-git
+        - dgop
+
+        # File Manager
+        - dolphin
+        - plasma-workspace
+        - ark
+      exclude:
+        - xwaylandvideobridge
+
+  - type: script
+    snippets:
+      - "rm /usr/share/wayland-sessions/plasma.desktop" # only needed because dolphin requires plasma-workspace to work properly, and that adds the plasma.desktop session.
+
+  - type: systemd
+    system:
+      enabled:
+        - greetd.service
+        - dms-greeter-folder-create.service

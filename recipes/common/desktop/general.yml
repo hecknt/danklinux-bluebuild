@@ -1,0 +1,59 @@
+# Configurations and packages for all desktop images.
+modules:
+  - type: script
+    scripts:
+      - terra-mesa.sh # replace mesa with version from mesa, add terra repos
+
+  - type: dnf
+    repos:
+      copr:
+        - scottames/ghostty
+        - ublue-os/packages
+      keys:
+        - https://repos.fyralabs.com/terra43-mesa/key.asc
+    install:
+      packages:
+        - kitty
+        - ghostty
+        - bazaar
+        - sxiv
+        - libpcap-devel
+        - libretls
+        - vulkan-tools
+        - unbound
+        - ltrace
+        - mpv
+        - firewall-config
+        - rsms-inter-fonts
+        - rsms-inter-vf-fonts
+        - fira-code-fonts
+        - ibm-plex-fonts-all
+        - jetbrains-mono-fonts-all
+        - fontawesome-6-free-fonts
+        - fontawesome-6-brands-fonts
+        - wev
+        - ddcutil
+        - breeze-cursor-theme
+        - breeze-icon-theme
+        - zsync
+        - uupd
+        - fprintd
+        - fprintd-pam
+        - ublue-polkit-rules
+        - python3-pyqt6
+
+  - type: default-flatpaks
+    configurations:
+      - notify: false # Send notification after install/uninstall is finished (true/false)
+        scope: system
+        repo:
+          title: Flathub (system)
+        install:
+          - org.mozilla.firefox
+          - com.github.tchx84.Flatseal
+          - io.missioncenter.MissionCenter # task manager
+          - io.github.celluloid_player.Celluloid # video player
+          - org.gnome.Snapshot # camera app
+      - scope: user # Also add Flathub user repo, but no user packages
+        repo:
+          title: Flathub (user)

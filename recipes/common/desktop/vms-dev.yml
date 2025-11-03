@@ -1,0 +1,34 @@
+# Recipe for Virtual Machine support and a few developer tools.
+modules:
+  - type: dnf
+    install:
+      packages:
+        - adb
+        - bcc
+        - bpftop
+        - bpftrace
+        - lxc
+        - libvirt
+        - libvirt-daemon-kvm
+        - libvirt-ssh-proxy
+        - libvirt-nss
+        - qemu-img
+        - qemu-kvm
+        - edk2-ovmf
+        - ublue-os-libvirt-workarounds
+        - guestfs-tools
+        - ydotool
+        - pnpm
+        - pipx
+        - podman-compose
+        - podman-machine
+        - podman-tui
+        - podman-bootc
+        - flatpak-builder
+
+  - type: default-flatpaks
+    configurations:
+      - notify: false # Send notification after install/uninstall is finished (true/false)
+      - scope: system
+        install:
+          - org.virt_manager.virt-manager

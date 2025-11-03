@@ -1,0 +1,15 @@
+# For CachyOS kernel images.
+modules:
+  - type: dnf
+    repos:
+      copr:
+        - bieszczaders/kernel-cachyos
+        - bieszczaders/kernel-cachyos-addons
+  - type: script
+    scripts:
+      - cachyos-kernel.sh
+  - type: initramfs
+  - type: systemd
+    system:
+      enabled:
+        - scx_loader.service

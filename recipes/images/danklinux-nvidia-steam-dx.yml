@@ -1,0 +1,14 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+name: danklinux-nvidia-steam-dx
+description: Hec's personal Fedora Atomic Desktop image, built with AvengeMedia's Dank Linux as it's desktop.
+
+base-image: ghcr.io/hecknt/danklinux-nvidia-steam
+image-version: 43
+
+modules:
+  # Add config for -dx
+  - from-file: common/desktop/vms-dev.yml
+
+  # Sign
+  - type: signing
