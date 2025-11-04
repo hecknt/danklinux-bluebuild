@@ -53,37 +53,9 @@ jobs:
       fail-fast: false # stop GH from cancelling all matrix builds if one fails
       matrix:
         recipe:
-          - images/danklinux-steam.yml
-          - images/danklinux-nvidia-steam.yml
           - images/danklinux-dx.yml
           - images/danklinux-nvidia-dx.yml
           - images/danklinux-kernel-cachyos-dx.yml
-    steps:
-      # the build is fully handled by the reusable github action
-      - name: Build Custom Image
-        uses: blue-build/github-action@v1.8
-        with:
-          recipe: ${{ matrix.recipe }}
-          cosign_private_key: ${{ secrets.SIGNING_SECRET }}
-          registry_token: ${{ github.token }}
-          pr_event_number: ${{ github.event.number }}
-          maximize_build_space: true
-          rechunk: true
-
-  build-layer3:
-    name: Build Third Layer of Images
-    runs-on: ubuntu-latest
-    needs: build-layer2 # ONLY RUN if build-layer2 has been completed!
-    permissions:
-      contents: read
-      packages: write
-      id-token: write
-    strategy:
-      fail-fast: false # stop GH from cancelling all matrix builds if one fails
-      matrix:
-        recipe:
-          - images/danklinux-steam-dx
-          - images/danklinux-nvidia-steam-dx.yml
     steps:
       # the build is fully handled by the reusable github action
       - name: Build Custom Image
