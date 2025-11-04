@@ -19,6 +19,7 @@ modules:
   - from-file: common/base.yml
   - from-file: common/desktop/general.yml
   - from-file: common/desktop/dank.yml
+  - from-file: common/desktop/steam.yml
 
   - type: os-release
     properties:
