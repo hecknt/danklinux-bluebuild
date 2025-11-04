@@ -11,11 +11,11 @@ Currently, all desktop images are built off of Fedora 43. There is a basic defau
 - `danklinux-steam` - Same as `danklinux`, but with Steam and other gaming packages installed.
 - `danklinux-steam-dx` - Same as `danklinux-steam` and `danklinux-dx` combined.
 - `danklinux-nvidia` - Same as `danklinux`, but built off of `ublue/base-nvidia` to give driver support for NVIDIA graphics cards.
-- `danklinux-dx` - Same as `danklinux-nvidia`, but with a set of packages added to assist with virtual machines and development.
-- `danklinux-steam` - Same as `danklinux-steam`, but with Steam and other gaming packages installed.
-- `danklinux-steam-dx` - Same as `danklinux-nvidia-steam` and `danklinux-nvidia-dx` combined.
+- `danklinux-nvidia-dx` - Same as `danklinux-nvidia`, but with a set of packages added to assist with virtual machines and development.
+- `danklinux-nvidia-steam` - Same as `danklinux-steam`, but with Steam and other gaming packages installed.
+- `danklinux-nvidia-steam-dx` - Same as `danklinux-nvidia-steam` and `danklinux-nvidia-dx` combined.
 - `danklinux-kernel-cachyos` - Same as `danklinux`, but built with the kernel used in [CachyOS](https://cachyos.org) installed instead of the default Fedora kernel. Also includes Steam and other gaming packages.
-- `danklinux-steam-dx` - Same as `danklinux-kernel-cachos`, but with a set of packages added to assist with virtual machines and development.
+- `danklinux-kernel-cachyos-dx` - Same as `danklinux-kernel-cachos`, but with a set of packages added to assist with virtual machines and development.
 
 ## Installation
 
