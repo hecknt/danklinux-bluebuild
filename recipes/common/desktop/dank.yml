@@ -48,6 +48,7 @@ modules:
         - dms-0.3.2
         - dms-cli-0.3.2
         - dms-greeter
+        - danksearch
         - quickshell-git
         - dgop
 
@@ -57,6 +58,9 @@ modules:
         - ark
       exclude:
         - xwaylandvideobridge
+    remove:
+      packages:
+        - mako
 
   - type: script
     snippets:
