@@ -11,7 +11,7 @@ modules:
         - yalter/niri
         - solopasha/hyprland
         - avengemedia/danklinux
-        - avengemedia/dms-git
+        - avengemedia/dms
 
     install:
       packages:
@@ -41,6 +41,7 @@ modules:
         - niri
         - hyprland
         - hyprland-devel
+        - xdg-desktop-portal-hyprland
         - grimblast
         - matugen
 
@@ -58,10 +59,14 @@ modules:
         - plasma-workspace
         - ark
       exclude:
-        - xwaylandvideobridge
-    remove:
-      packages:
+        - alacritty
         - mako
+        - waybar-git
+        - xwaylandvideobridge
+        - wofi
+        - swaybg
+        - swayidle
+        - swaylock
 
   - type: script
     snippets:
