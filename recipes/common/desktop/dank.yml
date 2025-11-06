@@ -61,12 +61,14 @@ modules:
       exclude:
         - alacritty
         - mako
-        - waybar-git
-        - xwaylandvideobridge
-        - wofi
         - swaybg
         - swayidle
         - swaylock
+        - swaylock-effects
+        - waybar
+        - waybar-git
+        - wofi
+        - xwaylandvideobridge
 
   - type: script
     snippets:
@@ -82,3 +84,6 @@ modules:
         - gnome-keyring-daemon.socket
         - gnome-keyring-daemon.service
         - dsearch.service
+
+  # rebuild initramfs for the plymouth watermark to apply properly
+  - type: initramfs
