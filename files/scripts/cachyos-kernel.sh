@@ -6,16 +6,29 @@ set -ouex pipefail
 dnf -y remove kernel* && rm -r -f /usr/lib/modules/*
 
 # Install CachyOS kernel & akmods
+
+# create a shims to bypass kernel install triggering dracut/rpm-ostree
+# seems to be minimal impact, but allows progress on build
+cd /usr/lib/kernel/install.d \
+&& mv 05-rpmostree.install 05-rpmostree.install.bak \
+&& mv 50-dracut.install 50-dracut.install.bak \
+&& printf '%s\n' '#!/bin/sh' 'exit 0' > 05-rpmostree.install \
+&& printf '%s\n' '#!/bin/sh' 'exit 0' > 50-dracut.install \
+&& chmod +x  05-rpmostree.install 50-dracut.install
+
+# install kernel
 dnf -y install --setopt=install_weak_deps=False \
   kernel-cachyos \
-  akmods || true # Use '|| true' to bypass the dracut error at the end. We rebuild the initramfs after this script anyways.
-
-dnf -y install --setopt=install_weak_deps=False \
+  kernel-cachyos-core \
   kernel-cachyos-devel \
-  kernel-cachyos-devel-matched
+  kernel-cachyos-devel-matched \
+  kernel-cachyos-modules \
+  akmods
 
-# Make sure that the kernel packages are listed as installed. If this command fails, then the script will exit with an error. 
-dnf list --installed kernel-cachyos kernel-cachyos-core kernel-cachyos-devel kernel-cachyos-devel-matched kernel-cachyos-modules
+# restore kernel install shim
+mv -f 05-rpmostree.install.bak 05-rpmostree.install \
+&& mv -f 50-dracut.install.bak 50-dracut.install
+cd -
 
 # Install SCX stuff
 dnf -y install --setopt=install_weak_deps=False \

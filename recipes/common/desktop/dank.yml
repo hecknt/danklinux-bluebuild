@@ -11,7 +11,7 @@ modules:
         - yalter/niri
         - solopasha/hyprland
         - avengemedia/danklinux
-        - avengemedia/dms
+        - avengemedia/dms-git
 
     install:
       packages:
@@ -23,6 +23,7 @@ modules:
         - gammastep
         - sassc
         - libappstream-glib
+        - gnome-keyring
 
         # Theming!
         - adw-gtk3-theme
@@ -45,8 +46,8 @@ modules:
 
         # DankMaterialShell
         - cliphist
-        - dms-0.3.2
-        - dms-cli-0.3.2
+        - dms
+        - dms-cli
         - dms-greeter
         - danksearch
         - quickshell-git
@@ -71,3 +72,8 @@ modules:
       enabled:
         - greetd.service
         - dms-greeter-folder-create.service
+    user:
+      enabled:
+        - gnome-keyring-daemon.socket
+        - gnome-keyring-daemon.service
+        - dsearch.service
