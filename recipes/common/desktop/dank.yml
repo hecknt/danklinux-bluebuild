@@ -16,7 +16,6 @@ modules:
     install:
       packages:
         # Basic utils
-        - mate-polkit
         - brightnessctl
         - cava
         - wl-clipboard
