@@ -31,6 +31,9 @@ modules:
         - podman-tui
         - podman-bootc
         - flatpak-builder
+        - virt-manager
+        - virt-v2v
+        - virt-viewer
         # docker
         - containerd.io
         - docker-buildx-plugin
@@ -44,10 +47,3 @@ modules:
         - docker.socket
         - podman.socket
         - ublue-os-libvirt-workarounds.service
-
-  - type: default-flatpaks
-    configurations:
-      - notify: false # Send notification after install/uninstall is finished (true/false)
-      - scope: system
-        install:
-          - org.virt_manager.virt-manager

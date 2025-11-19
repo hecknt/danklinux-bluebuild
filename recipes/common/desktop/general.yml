@@ -6,13 +6,14 @@ modules:
       copr:
         - scottames/ghostty
         - ublue-os/packages
+        - ublue-os/flatpak-test
       keys:
         - https://repos.fyralabs.com/terra43-mesa/key.asc
     install:
       packages:
         - kitty
+        - cryfs
         - ghostty
-        - bazaar
         - sxiv
         - libpcap-devel
         - libretls
@@ -38,23 +39,19 @@ modules:
         - fprintd-pam
         - ublue-polkit-rules
         - python3-pyqt6
+        - flatpak-libs
+    replace:
+      - from-repo: copr:copr.fedorainfracloud.org:ublue-os:flatpak-test # for flatpak preinstall support. remove when flatpak 1.17 comes out
+        packages:
+          - flatpak
+          - flatpak-session-helper
+
+  - type: systemd
+    system:
+      enabled:
+        - flatpak-preinstall.service
 
   - type: script
     scripts:
       - terra-mesa.sh # replace mesa with version from mesa, add terra repos
-
-  - type: default-flatpaks
-    configurations:
-      - notify: false # Send notification after install/uninstall is finished (true/false)
-        scope: system
-        repo:
-          title: Flathub (system)
-        install:
-          - org.mozilla.firefox
-          - com.github.tchx84.Flatseal
-          - io.missioncenter.MissionCenter # task manager
-          - io.github.celluloid_player.Celluloid # video player
-          - org.gnome.Snapshot # camera app
-      - scope: user # Also add Flathub user repo, but no user packages
-        repo:
-          title: Flathub (user)
+      - flatpaks.sh # adds the flathub repo to the image and removes Fedora's poopy flathub repo
