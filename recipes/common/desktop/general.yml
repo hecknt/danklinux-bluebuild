@@ -1,11 +1,8 @@
 # Configurations and packages for all desktop images.
 modules:
-  - type: script
-    scripts:
-      - terra-mesa.sh # replace mesa with version from mesa, add terra repos
-
   - type: dnf
     repos:
+      cleanup: true
       copr:
         - scottames/ghostty
         - ublue-os/packages
@@ -41,6 +38,10 @@ modules:
         - fprintd-pam
         - ublue-polkit-rules
         - python3-pyqt6
+
+  - type: script
+    scripts:
+      - terra-mesa.sh # replace mesa with version from mesa, add terra repos
 
   - type: default-flatpaks
     configurations:

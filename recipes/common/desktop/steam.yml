@@ -6,6 +6,7 @@ modules:
 
   - type: dnf
     repos:
+      cleanup: true
       copr:
         - bazzite-org/obs-vkcapture
         - bazzite-org/bazzite
