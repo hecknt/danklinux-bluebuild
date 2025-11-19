@@ -1,6 +1,6 @@
 # Hec's personal Dank Linux Fedora Atomic builds
 
-These are my personal (and currently very experimental) Universal Blue image builds, customized with my own personal additions to make my life easier. They are built with AvengeMedia's [Dank Linux](https://danklinux.com) and any dependencies. There are several images with different experiences in mind.
+These are my personal Universal Blue image builds, customized with my own personal additions to make my life easier. They are built with AvengeMedia's [Dank Linux](https://danklinux.com) and any dependencies. There are several images with different experiences in mind.
 
 ## Desktop Images
 
