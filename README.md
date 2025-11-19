@@ -1,5 +1,7 @@
 # Hec's personal Dank Linux Fedora Atomic builds
 
+[![Build Desktop](https://github.com/hecknt/danklinux-bluebuild/actions/workflows/build.yml/badge.svg)](https://github.com/hecknt/danklinux-bluebuild/actions/workflows/build.yml)
+
 These are my personal Universal Blue image builds, customized with my own personal additions to make my life easier. They are built with AvengeMedia's [Dank Linux](https://danklinux.com) and any dependencies. There are several images with different experiences in mind.
 
 ## Desktop Images
