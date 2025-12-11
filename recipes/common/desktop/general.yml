@@ -53,5 +53,4 @@ modules:
 
   - type: script
     scripts:
-      - terra-mesa.sh # replace mesa with version from mesa, add terra repos
       - flatpaks.sh # adds the flathub repo to the image and removes Fedora's poopy flathub repo
